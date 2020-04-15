@@ -3,7 +3,7 @@
 #include "mpc.h"
 
 // To link to mpc, put mpc.c into the compile command
-// Windows      --  gcc -std=c99 -Wall Parsing.c mpc.c -o Parsing
+// Windows      --  gcc -std=c99 -Wall Parsing.c mpc.c -o Parsing   then  Parsing.exe
 // Linux or Max --  cc -std=c99 -Wall Parsing.c mpc.c -ledit -lm -o Parsing
 
 // If this is compiled on Windows
@@ -42,15 +42,15 @@ int main(int argc, char ** argv)
 
 	// Define parsers with language
 	mpca_lang(MPCA_LANG_DEFAULT,
-    "                                                     \
-      number   : /-?[0-9]+/ ;                             \
-      operator : '+' | '-' | '*' | '/' ;                  \
-      expr     : <number> | '(' <operator> <expr>+ ')' ;  \
-      lispy    : /^/ <operator> <expr>+ /$/ ;             \
-    ",
-    Number, Operator, Expr, Lispy);
+		"                                                     \
+			number   : /-?[0-9]+/ ;                             \
+			operator : '+' | '-' | '*' | '/' ;                  \
+			expr     : <number> | '(' <operator> <expr>+ ')' ;  \
+			lispy    : /^/ <operator> <expr>+ /$/ ;             \
+		",
+		Number, Operator, Expr, Lispy);
 	
-	puts("Lispy Version 0.0.0.0.1");
+	puts("Lispy Version 0.0.0.0.2");
 	puts("Press Ctrl+c to Exit\n");
 	
 	while(1)
